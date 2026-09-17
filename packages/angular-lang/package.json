@@ -5,10 +5,10 @@
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
-  "files": [
-    "dist",
-    "README.md"
-  ],
+  "publishConfig": {
+    "access": "public",
+    "directory": "../../dist/angular-lang"
+  },
   "scripts": {
     "build": "ng-packagr -p ng-package.json && node ../../scripts/prepare-angular-lang-dist.mjs",
     "watch": "ng-packagr -p ng-package.json -w",
@@ -19,8 +19,8 @@
     "format:fix": "prettier --write ./src",
     "format:check": "prettier --check ./src",
     "prepare": "pnpm run build",
-    "ci": "pnpm run lint:check && pnpm run format:check",
-    "pack:check": "pnpm run build && npm pack --dry-run ../../dist/angular-lang"
+    "ci": "pnpm run typecheck && tsc -p tsconfig.test.json --noEmit && pnpm run test && pnpm run lint:check && pnpm run format:check && pnpm run pack:check",
+    "pack:check": "pnpm run build && node ../../scripts/check-angular-lang-pack.mjs"
   },
   "keywords": [
     "openui",
@@ -71,7 +71,7 @@
     "jsdom": "catalog:",
     "ng-packagr": "catalog:",
     "rxjs": "catalog:",
-    "typescript": "catalog:",
+    "typescript": "^6.0.3",
     "vitest": "^4.1.0",
     "zone.js": "catalog:"
   }

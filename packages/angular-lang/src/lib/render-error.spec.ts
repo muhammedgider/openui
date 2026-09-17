@@ -67,12 +67,18 @@ describe("OpenUiRendererComponent render error handling", () => {
     expect(fixture.nativeElement.textContent).toContain("still here");
     expect(receivedErrors.at(-1)).toEqual([]);
 
-    fixture.componentRef.setInput("response", 'root = MaybeCrash("still here", true)');
+    const lastGoodElement = fixture.nativeElement.querySelector(".content");
+    fixture.componentRef.setInput(
+      "response",
+      'root = MaybeCrash("must not replace good text", true)',
+    );
     fixture.detectChanges();
     await fixture.whenStable();
     fixture.detectChanges();
 
     expect(fixture.nativeElement.textContent).toContain("still here");
+    expect(fixture.nativeElement.textContent).not.toContain("must not replace good text");
+    expect(fixture.nativeElement.querySelector(".content")).toBe(lastGoodElement);
     expect(receivedErrors.at(-1)).toEqual([
       expect.objectContaining({
         source: "runtime",

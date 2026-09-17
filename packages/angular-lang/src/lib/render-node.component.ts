@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ComponentRef,
+  DestroyableInjector,
   ElementRef,
   EnvironmentInjector,
   ErrorHandler,
@@ -47,6 +48,24 @@ class RenderNodeError extends Error {
   }
 }
 
+interface RenderedEntry {
+  key: string;
+  host: Node;
+  component?: {
+    ref: ComponentRef<unknown>;
+    injector: DestroyableInjector;
+    type: Type<unknown>;
+    node: ElementNode;
+    context: OpenUiContextValue;
+    formName: string | undefined;
+  };
+}
+
+interface RenderValue {
+  key: string;
+  value: string | ElementNode;
+}
+
 @Component({
   selector: "openui-render-node",
   standalone: true,
@@ -72,106 +91,147 @@ export class OpenUiRenderNodeComponent implements OnChanges, OnDestroy {
   private readonly injector = inject(Injector);
   private readonly renderer = inject(Renderer2);
 
-  private componentRefs: ComponentRef<unknown>[] = [];
+  private entries: RenderedEntry[] = [];
 
   ngOnChanges(_changes: SimpleChanges): void {
-    this.renderValue(this.value, this.library, this.context, this.formName);
+    this.renderValue();
   }
 
   ngOnDestroy(): void {
-    this.destroyComponentRefs(this.componentRefs);
-    this.componentRefs = [];
+    this.entries.forEach((entry) => this.destroyEntry(entry));
+    this.entries = [];
     this.hostElement.nativeElement.replaceChildren();
   }
 
-  private renderValue(
-    value: unknown,
-    library: Library | null,
-    context: OpenUiContextValue | null,
-    formName: string | undefined,
-  ): void {
-    const stagingHost = this.renderer.createElement("openui-staging-host") as HTMLElement;
-    this.renderer.setStyle(stagingHost, "display", "contents");
-    const nextComponentRefs: ComponentRef<unknown>[] = [];
+  private flattenValue(value: unknown): RenderValue[] {
+    const result: RenderValue[] = [];
+    const occurrences = new Map<string, number>();
+    const visit = (item: unknown, path: number[]): void => {
+      if (Array.isArray(item)) {
+        item.forEach((child, index) => visit(child, [...path, index]));
+      } else if (isElementNode(item)) {
+        let key = JSON.stringify(["position", path]);
+        if (item.statementId !== undefined) {
+          const occurrence = occurrences.get(item.statementId) ?? 0;
+          occurrences.set(item.statementId, occurrence + 1);
+          key = JSON.stringify(["statement", item.statementId, occurrence]);
+        }
+        result.push({ key, value: item });
+      } else if (
+        typeof item === "string" ||
+        typeof item === "number" ||
+        typeof item === "boolean"
+      ) {
+        result.push({ key: JSON.stringify(["position", path]), value: String(item) });
+      }
+    };
+    visit(value, []);
+    return result;
+  }
+
+  private renderValue(): void {
+    const previous = new Map(this.entries.map((entry) => [entry.key, entry]));
+    const next: RenderedEntry[] = [];
+    const created: RenderedEntry[] = [];
+    const updated: RenderedEntry[] = [];
+    const nodeUpdates = new Map<RenderedEntry, ElementNode>();
+    const textUpdates = new Map<RenderedEntry, string>();
 
     try {
-      this.appendValue(stagingHost, value, library, context, formName, nextComponentRefs);
+      for (const { key, value } of this.flattenValue(this.value)) {
+        const old = previous.get(key);
+        if (typeof value === "string") {
+          const entry =
+            old && !old.component ? old : { key, host: this.renderer.createText(value) as Node };
+          textUpdates.set(entry, value);
+          next.push(entry);
+          continue;
+        }
 
-      const nextChildren = Array.from(stagingHost.childNodes);
-      this.destroyComponentRefs(this.componentRefs);
-      this.componentRefs = nextComponentRefs;
-      this.hostElement.nativeElement.replaceChildren();
-      for (const child of nextChildren) {
-        this.renderer.appendChild(this.hostElement.nativeElement, child);
+        const type = this.library?.components[value.typeName]?.component as
+          Type<unknown> | undefined;
+        if (!type || !this.context) continue;
+
+        let entry: RenderedEntry;
+        if (
+          old?.component &&
+          old.component.type === type &&
+          old.component.node.typeName === value.typeName &&
+          old.component.context === this.context &&
+          old.component.formName === this.formName
+        ) {
+          entry = old;
+          // Record before updating: even a failed detectChanges must be rolled back.
+          updated.push(entry);
+        } else {
+          entry = this.createEntry(key, value, type, this.context);
+          created.push(entry);
+        }
+        this.updateEntry(entry, value);
+        nodeUpdates.set(entry, value);
+        next.push(entry);
       }
     } catch (error) {
-      this.destroyComponentRefs(nextComponentRefs);
-      const message = error instanceof Error ? error.message : String(error);
+      created.forEach((entry) => this.destroyEntry(entry));
+      for (const entry of updated) {
+        try {
+          this.updateEntry(entry, entry.component!.node);
+        } catch {
+          // A component may also throw for its last good inputs. Keep its DOM,
+          // but do not let the failed view crash subsequent application ticks.
+          entry.component!.ref.changeDetectorRef.detach();
+        }
+      }
       const renderError = error instanceof RenderNodeError ? error : null;
-      context?.reportError?.({
+      this.context?.reportError?.({
         source: "runtime",
         code: "render-error",
         component: renderError?.componentName,
         statementId: renderError?.statementId,
-        message,
+        message: error instanceof Error ? error.message : String(error),
       });
-    }
-  }
-
-  private appendValue(
-    parent: HTMLElement,
-    value: unknown,
-    library: Library | null,
-    context: OpenUiContextValue | null,
-    formName: string | undefined,
-    componentRefs: ComponentRef<unknown>[],
-  ): void {
-    if (value == null) {
       return;
     }
 
-    if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") {
-      this.renderer.appendChild(parent, this.renderer.createText(String(value)));
-      return;
-    }
-
-    if (Array.isArray(value)) {
-      for (const item of value) {
-        this.appendValue(parent, item, library, context, formName, componentRefs);
+    const retained = new Set(next);
+    for (const entry of this.entries) {
+      if (!retained.has(entry)) {
+        this.destroyEntry(entry);
+        this.renderer.removeChild(this.hostElement.nativeElement, entry.host);
       }
-      return;
     }
 
-    if (isElementNode(value)) {
-      this.appendElementNode(parent, value, library, context, formName, componentRefs);
+    // Do not detach/reinsert unchanged hosts: doing so loses input focus.
+    const host = this.hostElement.nativeElement;
+    let cursor = host.firstChild;
+    for (const entry of next) {
+      if (entry.host !== cursor) {
+        this.renderer.insertBefore(host, entry.host, cursor);
+      }
+      cursor = entry.host.nextSibling;
+      const text = textUpdates.get(entry);
+      if (text !== undefined) this.renderer.setValue(entry.host, text);
+      const node = nodeUpdates.get(entry);
+      if (node && entry.component) {
+        entry.component.node = node;
+        this.context?.clearError?.(node.typeName, node.statementId);
+      }
     }
+    this.entries = next;
   }
 
-  private appendElementNode(
-    parent: HTMLElement,
+  private createEntry(
+    key: string,
     node: ElementNode,
-    library: Library | null,
-    context: OpenUiContextValue | null,
-    formName: string | undefined,
-    componentRefs: ComponentRef<unknown>[],
-  ): void {
-    if (!library || !context) {
-      return;
-    }
-
-    const componentDef = library.components[node.typeName];
-    if (!componentDef) {
-      return;
-    }
-
-    const childHost = this.renderer.createElement("openui-dynamic-host") as HTMLElement;
-    this.renderer.setStyle(childHost, "display", "contents");
-    this.renderer.appendChild(parent, childHost);
-
-    const childInjector = Injector.create({
+    type: Type<unknown>,
+    context: OpenUiContextValue,
+  ): RenderedEntry {
+    const host = this.renderer.createElement("openui-dynamic-host") as HTMLElement;
+    this.renderer.setStyle(host, "display", "contents");
+    const injector = Injector.create({
       providers: [
         { provide: OPENUI_CONTEXT, useValue: context },
-        { provide: OPENUI_FORM_NAME, useValue: formName },
+        { provide: OPENUI_FORM_NAME, useValue: this.formName },
         {
           provide: ErrorHandler,
           useValue: {
@@ -183,41 +243,55 @@ export class OpenUiRenderNodeComponent implements OnChanges, OnDestroy {
       ],
       parent: this.injector,
     });
-
-    let componentRef: ComponentRef<unknown> | null = null;
-
+    let ref: ComponentRef<unknown> | undefined;
     try {
-      componentRef = createComponent(componentDef.component as Type<unknown>, {
+      ref = createComponent(type, {
         environmentInjector: this.environmentInjector,
-        elementInjector: childInjector,
-        hostElement: childHost,
+        elementInjector: injector,
+        hostElement: host,
       });
-
-      this.applicationRef.attachView(componentRef.hostView);
-      componentRef.setInput("props", node.props);
-      componentRef.setInput("renderNode", context.renderNode);
-      componentRef.setInput("statementId", node.statementId);
-      componentRef.changeDetectorRef.detectChanges();
-      context.clearError?.(node.typeName, node.statementId);
-      componentRefs.push(componentRef);
+      this.applicationRef.attachView(ref.hostView);
+      return {
+        key,
+        host,
+        component: { ref, injector, type, node, context, formName: this.formName },
+      };
     } catch (error) {
-      if (componentRef) {
-        this.applicationRef.detachView(componentRef.hostView);
-        componentRef.destroy();
+      if (ref) {
+        this.applicationRef.detachView(ref.hostView);
+        ref.destroy();
       }
-      const message = error instanceof Error ? error.message : String(error);
-      throw new RenderNodeError(
-        `Component ${node.typeName} render failed: ${message}`,
-        node.typeName,
-        node.statementId,
-      );
+      injector.destroy();
+      throw this.renderError(error, node);
     }
   }
 
-  private destroyComponentRefs(componentRefs: ComponentRef<unknown>[]): void {
-    for (const componentRef of componentRefs) {
-      this.applicationRef.detachView(componentRef.hostView);
-      componentRef.destroy();
+  private updateEntry(entry: RenderedEntry, node: ElementNode): void {
+    const component = entry.component!;
+    try {
+      component.ref.setInput("props", node.props);
+      component.ref.setInput("renderNode", component.context.renderNode);
+      component.ref.setInput("statementId", node.statementId);
+      component.ref.changeDetectorRef.reattach();
+      component.ref.changeDetectorRef.detectChanges();
+    } catch (error) {
+      throw this.renderError(error, node);
     }
+  }
+
+  private renderError(error: unknown, node: ElementNode): RenderNodeError {
+    const message = error instanceof Error ? error.message : String(error);
+    return new RenderNodeError(
+      `Component ${node.typeName} render failed: ${message}`,
+      node.typeName,
+      node.statementId,
+    );
+  }
+
+  private destroyEntry(entry: RenderedEntry): void {
+    if (!entry.component) return;
+    this.applicationRef.detachView(entry.component.ref.hostView);
+    entry.component.ref.destroy();
+    entry.component.injector.destroy();
   }
 }

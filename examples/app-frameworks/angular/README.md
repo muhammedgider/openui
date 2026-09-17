@@ -15,16 +15,30 @@ This example is intentionally optimized for repository development and smoke tes
 
 ### Prerequisites
 
-- Node.js 24.15+
-- pnpm, npm, or Bun
+- Node.js 24.15.0+ (24.x), or another version supported by Angular 22
+- pnpm 10.33.0
+- A full checkout of this repository; this pre-release example is not standalone
 
 ### Install dependencies
 
-From this example directory:
+Before installing the example, build its local package from the repository root:
 
 ```bash
-pnpm install --ignore-workspace
+pnpm run examples:prepare
 ```
+
+This installs workspace dependencies without running every package's prepare
+script, then builds `lang-core` and `angular-lang` in dependency order.
+
+Then install this application's separate dependencies:
+
+```bash
+cd examples/app-frameworks/angular
+pnpm install --ignore-workspace --frozen-lockfile
+```
+
+The root `pnpm examples:install` command performs the preparation automatically
+before installing all examples, including in CI.
 
 ### Run
 
@@ -36,9 +50,20 @@ Open [http://localhost:4200](http://localhost:4200).
 
 ## Local package resolution
 
-This example is added in the same repository branch as `@openuidev/angular-lang`, so it resolves that package through a TypeScript path alias to the local package source instead of pulling a published npm version.
+Until the first npm release, `@openuidev/angular-lang` is a declared
+`file:../../../dist/angular-lang` dependency. pnpm installs the built package into
+the example's dependency graph; there are no aliases to workspace source files.
+Angular peers resolve from this application rather than loading a second Angular
+runtime from the workspace.
 
-That keeps the example runnable before the Angular package is published while preserving the same public import path used by consumers:
+Once the distribution exists, the example can install and build without any
+workspace `node_modules` or package sources. To test it separately, copy this
+example and `dist/angular-lang` while preserving their relative paths. After
+changing library code, rebuild the distribution and reinstall the example's
+local dependency before rebuilding the app.
+
+After the package is published, replace the file dependency with its published
+version. The public import path is already the same:
 
 ```ts
 import { Renderer, createLibrary, defineComponent } from "@openuidev/angular-lang";

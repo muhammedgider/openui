@@ -100,7 +100,7 @@ describe("OpenUiRendererComponent query foundation", () => {
   });
 
   it("exposes query loading state while requests are in flight", async () => {
-    let resolveTool: ((value: unknown) => void) | null = null;
+    let resolveTool!: (value: unknown) => void;
 
     const Probe = defineComponent({
       name: "Probe",

@@ -23,7 +23,7 @@ import { scenarios, type ScenarioDefinition } from "./openui/scenarios";
         </div>
         <div class="hero-meta">
           <span>Runtime: Angular 22</span>
-          <span>Package source: local repo path alias</span>
+          <span>Package source: built local distribution</span>
         </div>
       </section>
 

@@ -26,6 +26,11 @@ angularLangDistPackage.peerDependencies = {
   zod: getCatalogVersion(catalog, "zod"),
 };
 
+// Changesets/pnpm resolve this redirect from the workspace manifest only.
+// Keeping it in the generated manifest would redirect a second time.
+if (angularLangDistPackage.publishConfig) {
+  delete angularLangDistPackage.publishConfig.directory;
+}
 delete angularLangDistPackage.files;
 delete angularLangDistPackage.scripts;
 delete angularLangDistPackage.devDependencies;

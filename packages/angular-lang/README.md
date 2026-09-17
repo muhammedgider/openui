@@ -171,6 +171,9 @@ Errors stay structured so host apps can log them, surface them, or feed them bac
 ### Context Helpers
 
 Use these inside Angular component renderers to interact with the OpenUI runtime.
+Call injection helpers in a constructor or field initializer. In lifecycle hooks
+such as `ngOnChanges`, pass an already-injected context to
+`setDefaultValue(options, this.openUi)`; hooks are not injection contexts.
 
 | Helper | Description |
 | :--- | :--- |
@@ -266,7 +269,13 @@ pnpm --filter @openuidev/angular-lang typecheck
 pnpm --filter @openuidev/angular-lang build
 pnpm --filter @openuidev/angular-lang lint:check
 pnpm --filter @openuidev/angular-lang format:check
+pnpm --filter @openuidev/angular-lang pack:check
 ```
+
+`publishConfig.directory` routes workspace publishing (including Changesets) to
+`dist/angular-lang`. `pack:check` runs `pnpm pack` from the workspace package and
+checks that the resulting archive includes its runtime, declarations, and
+resolvable entry points. It does not publish to npm.
 
 Suggested manual smoke-test flow:
 

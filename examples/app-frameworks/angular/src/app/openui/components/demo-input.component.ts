@@ -1,8 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
-import {
-  injectOpenUiContext,
-  setDefaultValue,
-} from "@openuidev/angular-lang";
+import { injectOpenUiContext, setDefaultValue } from "@openuidev/angular-lang";
 
 @Component({
   selector: "demo-input-field",
@@ -44,15 +41,13 @@ import {
   ],
 })
 export class DemoInputComponent implements OnChanges {
-  @Input() props:
-    | {
-        formName: string;
-        name: string;
-        label: string;
-        defaultValue?: string;
-        placeholder?: string;
-      }
-    | null = null;
+  @Input() props: {
+    formName: string;
+    name: string;
+    label: string;
+    defaultValue?: string;
+    placeholder?: string;
+  } | null = null;
   @Input() renderNode: ((value: unknown) => unknown) | null = null;
   @Input() statementId: string | undefined = undefined;
 
@@ -68,15 +63,18 @@ export class DemoInputComponent implements OnChanges {
       return;
     }
 
-    setDefaultValue({
-      formName: this.props.formName,
-      componentType: "Input",
-      name: this.props.name,
-      existingValue: this.openUi.getFieldValue(this.props.formName, this.props.name),
-      defaultValue: this.props.defaultValue,
-      isStreaming: this.openUi.isStreaming,
-      shouldTriggerSaveCallback: false,
-    });
+    setDefaultValue(
+      {
+        formName: this.props.formName,
+        componentType: "Input",
+        name: this.props.name,
+        existingValue: this.openUi.getFieldValue(this.props.formName, this.props.name),
+        defaultValue: this.props.defaultValue,
+        isStreaming: this.openUi.isStreaming,
+        shouldTriggerSaveCallback: false,
+      },
+      this.openUi,
+    );
   }
 
   onInput(event: Event): void {
