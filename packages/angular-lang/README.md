@@ -269,13 +269,18 @@ pnpm --filter @openuidev/angular-lang typecheck
 pnpm --filter @openuidev/angular-lang build
 pnpm --filter @openuidev/angular-lang lint:check
 pnpm --filter @openuidev/angular-lang format:check
-pnpm --filter @openuidev/angular-lang pack:check
+pnpm --filter @openuidev/angular-lang pack
 ```
 
-`publishConfig.directory` routes workspace publishing (including Changesets) to
-`dist/angular-lang`. `pack:check` runs `pnpm pack` from the workspace package and
-checks that the resulting archive includes its runtime, declarations, and
-resolvable entry points. It does not publish to npm.
+This package declares its development Node.js runtime through
+`devEngines.runtime`. With the repository's pinned pnpm version, installation
+provisions Node.js 24.15.0 and package scripts use it without changing the Node.js
+version used by other workspace packages.
+
+`ng-packagr` builds the library into this package's `dist/` folder. The package
+manifest declares the runtime and type entry points directly, and `pnpm pack`
+resolves workspace and catalog dependencies when creating the archive. It does
+not publish to npm.
 
 Suggested manual smoke-test flow:
 
