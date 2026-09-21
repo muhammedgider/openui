@@ -72,13 +72,11 @@
     "@angular/compiler-cli": "catalog:",
     "@angular/core": "catalog:",
     "@angular/platform-browser": "catalog:",
-    "@angular/platform-browser-dynamic": "catalog:",
     "jsdom": "catalog:",
     "ng-packagr": "catalog:",
     "rxjs": "catalog:",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.0",
-    "zone.js": "catalog:"
+    "vitest": "^4.1.0"
   },
   "module": "./dist/fesm2022/openuidev-angular-lang.mjs",
   "types": "./dist/types/openuidev-angular-lang.d.ts",
