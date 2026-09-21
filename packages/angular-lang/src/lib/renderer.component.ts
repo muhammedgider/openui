@@ -9,6 +9,7 @@ import {
   OnChanges,
   OnDestroy,
   Output,
+  signal,
   SimpleChanges,
   Type,
 } from "@angular/core";
@@ -148,6 +149,9 @@ export class OpenUiRendererComponent implements OnChanges, OnDestroy {
   private latestParseResult: ParseResult | null = null;
   private latestRuntimeErrors: OpenUIError[] = [];
   private readonly store: Store = createStore();
+  private readonly storeSnapshot = signal(this.store.getSnapshot());
+  private readonly streamingState = signal(false);
+  private readonly queryLoadingState = signal(false);
   private currentToolProviderInput: OpenUiToolProvider = null;
   private readonly stableToolProvider: ToolProvider = {
     callTool: async (toolName: string, args: Record<string, unknown>): Promise<unknown> => {
@@ -188,34 +192,45 @@ export class OpenUiRendererComponent implements OnChanges, OnDestroy {
     },
   };
 
-  readonly context: OpenUiContextValue = {
-    library: null,
-    isStreaming: false,
-    renderNode: (value) => value,
-    triggerAction: (userMessage, formName, action) =>
-      this.triggerAction(userMessage, formName, action),
-    getFieldValue: (formName, name) => this.getFieldValue(formName, name),
-    setFieldValue: (formName, componentType, name, value, shouldTriggerSaveCallback = true) =>
-      this.setFieldValue(formName, componentType, name, value, shouldTriggerSaveCallback),
-    store: this.store,
-    evaluationContext: this.evaluationContext,
-    isQueryLoading: false,
-    reportParseResult: (result) => this.parseResult.emit(result),
-    reportErrors: (errors) => this.error.emit(errors),
-    reportError: (error) => {
-      this.recordRenderError(error);
-      this.cdr.markForCheck();
-    },
-    clearError: (component, statementId) => {
-      this.clearRenderError(component, statementId);
-      this.cdr.markForCheck();
-    },
-  };
+  readonly context: OpenUiContextValue = this.createContext();
+
+  private createContext(): OpenUiContextValue {
+    const streaming = this.streamingState;
+    const queryLoading = this.queryLoadingState;
+    return {
+      library: null,
+      get isStreaming() {
+        return streaming();
+      },
+      renderNode: (value) => value,
+      triggerAction: (userMessage, formName, action) =>
+        this.triggerAction(userMessage, formName, action),
+      getFieldValue: (formName, name) => this.getFieldValue(formName, name),
+      setFieldValue: (formName, componentType, name, value, shouldTriggerSaveCallback = true) =>
+        this.setFieldValue(formName, componentType, name, value, shouldTriggerSaveCallback),
+      store: this.store,
+      evaluationContext: this.evaluationContext,
+      get isQueryLoading() {
+        return queryLoading();
+      },
+      reportParseResult: (result) => this.parseResult.emit(result),
+      reportErrors: (errors) => this.error.emit(errors),
+      reportError: (error) => {
+        this.recordRenderError(error);
+        this.cdr.markForCheck();
+      },
+      clearError: (component, statementId) => {
+        this.clearRenderError(component, statementId);
+        this.cdr.markForCheck();
+      },
+    };
+  }
 
   constructor() {
     this.queryManager.activate();
     this.attachQueryManagerSubscription();
     this.unsubscribeStore = this.store.subscribe(() => {
+      this.storeSnapshot.set(this.store.getSnapshot());
       if (!this.latestParseResult || !this.library) return;
       this.evaluateQueryAndMutationNodes();
       this.refreshEvaluatedState();
@@ -224,7 +239,7 @@ export class OpenUiRendererComponent implements OnChanges, OnDestroy {
 
   ngOnChanges(_changes: SimpleChanges): void {
     this.context.library = this.library;
-    this.context.isStreaming = this.isStreaming;
+    this.streamingState.set(this.isStreaming);
     this.updateToolProviderIfNeeded();
 
     if (!this.library || !this.response) {
@@ -234,7 +249,7 @@ export class OpenUiRendererComponent implements OnChanges, OnDestroy {
       this.queryManager.evaluateQueries([]);
       this.queryManager.registerMutations([]);
       this.querySnapshot = this.queryManager.getSnapshot();
-      this.context.isQueryLoading = false;
+      this.queryLoadingState.set(false);
       this.rootNode = null;
       this.parseResult.emit(null);
       this.error.emit([]);
@@ -260,7 +275,7 @@ export class OpenUiRendererComponent implements OnChanges, OnDestroy {
       this.queryManager.evaluateQueries([]);
       this.queryManager.registerMutations([]);
       this.querySnapshot = this.queryManager.getSnapshot();
-      this.context.isQueryLoading = false;
+      this.queryLoadingState.set(false);
       this.parseResult.emit(null);
       this.error.emit([
         {
@@ -289,13 +304,13 @@ export class OpenUiRendererComponent implements OnChanges, OnDestroy {
     this.currentToolProviderInput = this.toolProvider;
     this.queryManager.invalidate();
     this.querySnapshot = this.queryManager.getSnapshot();
-    this.context.isQueryLoading = this.querySnapshot.__openui_loading.length > 0;
+    this.queryLoadingState.set(this.querySnapshot.__openui_loading.length > 0);
   }
 
   private attachQueryManagerSubscription(): void {
     this.unsubscribeQueryManager = this.queryManager.subscribe(() => {
       this.querySnapshot = this.queryManager.getSnapshot();
-      this.context.isQueryLoading = this.querySnapshot.__openui_loading.length > 0;
+      this.queryLoadingState.set(this.querySnapshot.__openui_loading.length > 0);
       this.refreshEvaluatedState();
     });
   }
@@ -429,10 +444,12 @@ export class OpenUiRendererComponent implements OnChanges, OnDestroy {
     }
 
     this.querySnapshot = this.queryManager.getSnapshot();
-    this.context.isQueryLoading = this.querySnapshot.__openui_loading.length > 0;
+    this.queryLoadingState.set(this.querySnapshot.__openui_loading.length > 0);
   }
 
   private getFieldValue(formName: string | undefined, name: string): unknown {
+    // Register Angular consumers even when the parsed node and its props are static.
+    this.storeSnapshot();
     if (!formName) {
       return unwrapFieldValue(this.store.get(name));
     }

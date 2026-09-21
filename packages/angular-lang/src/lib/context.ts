@@ -1,4 +1,4 @@
-import { inject } from "@angular/core";
+import { computed, inject, type Signal } from "@angular/core";
 import type {
   ActionPlan,
   EvaluationContext,
@@ -26,7 +26,7 @@ export interface SetDefaultValueOptions {
 
 export interface OpenUiContextValue {
   library: Library | null;
-  isStreaming: boolean;
+  readonly isStreaming: boolean;
   renderNode: (value: unknown) => unknown;
   triggerAction: (
     userMessage: string,
@@ -43,7 +43,7 @@ export interface OpenUiContextValue {
   ) => void;
   store: Store;
   evaluationContext: EvaluationContext;
-  isQueryLoading: boolean;
+  readonly isQueryLoading: boolean;
   reportParseResult: ((result: ParseResult | null) => void) | null;
   reportErrors: ((errors: OpenUIError[]) => void) | null;
   reportError?: (error: OpenUIError) => void;
@@ -62,12 +62,14 @@ export function injectTriggerAction(): OpenUiContextValue["triggerAction"] {
   return injectOpenUiContext().triggerAction;
 }
 
-export function injectIsStreaming(): boolean {
-  return injectOpenUiContext().isStreaming;
+export function injectIsStreaming(): Signal<boolean> {
+  const context = injectOpenUiContext();
+  return computed(() => context.isStreaming);
 }
 
-export function injectIsQueryLoading(): boolean {
-  return injectOpenUiContext().isQueryLoading;
+export function injectIsQueryLoading(): Signal<boolean> {
+  const context = injectOpenUiContext();
+  return computed(() => context.isQueryLoading);
 }
 
 export function injectGetFieldValue(): OpenUiContextValue["getFieldValue"] {

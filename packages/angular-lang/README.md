@@ -180,14 +180,29 @@ such as `ngOnChanges`, pass an already-injected context to
 | `injectOpenUiContext()` | Access the full OpenUI runtime context |
 | `injectRenderNode()` | Get the recursive child renderer |
 | `injectTriggerAction()` | Trigger an action event |
-| `injectIsStreaming()` | Read whether the model is still streaming |
-| `injectIsQueryLoading()` | Read whether any query is currently loading |
+| `injectIsStreaming()` | Return a `Signal<boolean>` that tracks whether the model is streaming |
+| `injectIsQueryLoading()` | Return a `Signal<boolean>` that tracks whether any query is loading |
 | `injectGetFieldValue()` | Read a form field's current value |
 | `injectSetFieldValue()` | Set a form field's value |
 | `injectFormName()` | Get the current form name |
 | `injectStore()` | Access the underlying store |
 | `injectEvaluationContext()` | Access the runtime evaluation context |
 | `setDefaultValue(options, context?)` | Persist a default field value once streaming finishes |
+
+Capture the streaming/loading signals once during component construction, then
+call them in templates or event handlers:
+
+```ts
+readonly isStreaming = injectIsStreaming();
+readonly isQueryLoading = injectIsQueryLoading();
+// Template: <button [disabled]="isStreaming() || isQueryLoading()">Submit</button>
+```
+
+The full context's `isStreaming` and `isQueryLoading` properties remain boolean
+getters backed by those reactive values. Reading them in a template also tracks
+updates. `getFieldValue(formName, name)` tracks store changes when called from a
+template or `computed()`, including components whose OpenUI props never change.
+Read the field inside that reactive consumer instead of saving its initial value.
 
 ### Form Validation
 
