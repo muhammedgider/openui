@@ -1,0 +1,177 @@
+@use "upstream/components/Card/card";
+@use "upstream/components/Button/button";
+@use "upstream/components/Buttons/buttons";
+@use "upstream/components/Input/input";
+@use "upstream/components/Label/label";
+@use "upstream/components/TextBlock/textBlock";
+@use "upstream/components/TextArea/textArea";
+@use "upstream/components/FormControl/formControl";
+@use "upstream/components/FormControl/Hint/hint";
+@use "upstream/components/Select/select";
+@use "upstream/components/CheckBoxGroup/checkBoxGroup";
+@use "upstream/components/CheckBoxItem/checkBoxItem";
+@use "upstream/components/RadioGroup/radioGroup";
+@use "upstream/components/RadioItem/radioItem";
+@use "upstream/components/SwitchGroup/switchGroup";
+@use "upstream/components/SwitchItem/switchItem";
+@use "upstream/components/Tabs/tabs";
+@use "upstream/components/Accordion/accordion";
+@use "upstream/components/Table/table";
+@use "upstream/components/IconButton/iconButton";
+@use "upstream/components/CardHeader/cardHeader";
+@use "upstream/components/TagBlock/tagBlock";
+@use "upstream/components/Tag/tag";
+@use "upstream/components/Separator/separator";
+@use "upstream/components/Skeleton/skeleton";
+@use "upstream/components/InlineMarkdownRenderer/inlineMarkdownRenderer";
+@use "upstream/components/CodeBlock/codeBlock";
+@use "upstream/components/MarkDownRenderer/markDownRenderer";
+// TextContent refines Markdown's heading/body rules, as in the React entrypoint.
+@use "upstream/components/TextContentWrapper/textContentWrapper";
+@use "upstream/components/Callout/callout";
+@use "upstream/components/ImageTextLarge/imageTextLarge";
+@use "upstream/components/ImageText/imageText";
+@use "upstream/components/InlineHeader/inlineHeader";
+@use "upstream/components/MetricIndicator/metricIndicator";
+@use "upstream/components/IconTag/iconTag";
+@use "upstream/components/TextCallout/textCallout";
+@use "upstream/components/IconText/iconText";
+@use "upstream/components/Chips/chips";
+@use "upstream/components/OptionCards/optionCards";
+@use "upstream/components/Steps/steps";
+@use "upstream/components/Image/image";
+@use "upstream/components/EntityList/entityList";
+@use "upstream/components/ListItem/listItem";
+@use "upstream/components/ListBlock/listBlock";
+@use "upstream/components/_shared/cards/smallCardBlock";
+@use "upstream/components/_shared/cards/mediumCardBlock";
+@use "upstream/components/SnippetCardBlock/snippetCardBlock";
+@use "upstream/components/OverviewCardBlock/overviewCardBlock";
+@use "upstream/components/ContextCardBlock/contextCardBlock";
+@use "upstream/components/VisualCardBlock/visualCardBlock";
+@use "upstream/components/CompositeCardBlock/compositeCardBlock";
+@use "upstream/components/TooltipWrapper/tooltipWrapper";
+@use "upstream/components/Modal/modal";
+@use "upstream/components/Carousel/carousel";
+@use "upstream/components/ImageBlock/imageBlock";
+@use "upstream/components/ImageGallery/imageGallery";
+@use "upstream/components/Slider/slider";
+@use "upstream/components/Sources/sources";
+@use "upstream/components/Citation/citation";
+@use "upstream/components/SourceFaviconImage/sourceFaviconImage";
+@use "upstream/components/FollowUpBlock/followUpBlock";
+@use "upstream/components/FollowUpItem/followUpItem";
+@use "upstream/components/SectionBlock/sectionBlock";
+@use "upstream/components/Calendar/calendar";
+@use "upstream/components/DatePicker/datePicker";
+@use "upstream/components/EditableTable/editableTable";
+
+.openui-angular-tooltip {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  border: 0;
+  max-width: min(272px, calc(100vw - 16px));
+}
+
+.openui-native-dialog {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  overflow: hidden;
+}
+.openui-native-dialog::backdrop {
+  background: transparent;
+}
+
+// Angular hosts are layout-transparent, but upstream child selectors still need a bridge.
+.openui-chip-item__icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+// Browser-default normalization, lower specificity than upstream component rules.
+:where(.openui-theme) :where(button, h3) {
+  margin: 0;
+  padding: 0;
+}
+:where(.openui-theme) :where(button, input, textarea) {
+  font: inherit;
+}
+.openui-theme [hidden] {
+  display: none !important;
+}
+.openui-angular-select-popover {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+.openui-theme
+  :where(
+    [role="checkbox"],
+    [role="radio"],
+    [role="switch"],
+    [role="tab"],
+    .openui-accordion-trigger,
+    .openui-select-trigger
+  ):focus-visible {
+  outline: 2px solid var(--openui-border-interactive-emphasis);
+  outline-offset: 2px;
+}
+
+// display:contents keeps layout flat, but CSS child combinators still see Angular hosts.
+.openui-markdown-renderer > openui-markdown-nodes > :first-child {
+  margin-top: 0;
+}
+.openui-markdown-renderer > openui-markdown-nodes > :last-child {
+  margin-bottom: 0;
+}
+.openui-markdown-renderer blockquote > openui-markdown-nodes:first-child::before,
+.openui-markdown-renderer blockquote > openui-markdown-nodes:last-child::after {
+  content: none;
+}
+.openui-markdown-renderer blockquote > openui-markdown-nodes > :first-child::before {
+  content: open-quote;
+  font-size: 1em;
+  line-height: 1;
+  vertical-align: top;
+  margin-right: 0.2em;
+}
+.openui-markdown-renderer blockquote > openui-markdown-nodes > :last-child::after {
+  content: close-quote;
+  font-size: 1em;
+  line-height: 1.5;
+  vertical-align: top;
+  margin-left: 0.2em;
+}
+
+// Theme variables are emitted from the upstream token snapshot by prepare-dist.mjs.
+.openui-theme {
+  color: var(--openui-text-neutral-primary);
+  font: var(--openui-text-body-default);
+  min-width: 0;
+}
+.openui-theme openui-text-block {
+  display: contents;
+}
+.openui-theme .openui-button-base:focus-visible {
+  outline: 2px solid var(--openui-border-interactive-emphasis);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .openui-theme .openui-input,
+  .openui-theme .openui-button-base {
+    transition: none;
+  }
+}

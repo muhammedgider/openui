@@ -1,0 +1,28 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc/angular-ui",
+    "rootDir": "./src",
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "paths": {
+      "@openuidev/angular-lang": ["../../dist/angular-lang"],
+      "@openuidev/lang-core": ["../lang-core/dist/index.d.mts"],
+      "@angular/*": ["./node_modules/@angular/*"],
+      "zod/*": ["./node_modules/zod/*"]
+    },
+    "declaration": false,
+    "declarationMap": false,
+    "inlineSources": true,
+    "types": [],
+    "useDefineForClassFields": false
+  },
+  "angularCompilerOptions": {
+    "compilationMode": "partial",
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

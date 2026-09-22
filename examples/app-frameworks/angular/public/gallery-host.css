@@ -1,0 +1,13 @@
+/* Gallery-only normalization, copied from React OpenUI's Storybook preflight.
+   Component CSS remains the Angular package's upstream SCSS snapshot. */
+@import "./gallery-preflight.css";
+@import "./fonts/inter.css";
+html.gallery-page,
+body.gallery-page {
+  margin: 0;
+  background: transparent;
+  min-height: 100%;
+}
+body.gallery-page {
+  font-family: "Inter", sans-serif;
+}

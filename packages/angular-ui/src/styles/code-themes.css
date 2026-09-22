@@ -1,0 +1,1532 @@
+/* Prism theme snapshot from react-syntax-highlighter (MIT; see CODE-THEME-LICENSE). */
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  > .openui-code-block-syntax-highlighter
+  > code {
+  background: hsl(230, 1%, 98%);
+  color: hsl(230, 8%, 24%);
+  font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  ms-hyphens: none;
+  hyphens: none;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  > .openui-code-block-syntax-highlighter {
+  background: hsl(230, 1%, 98%);
+  color: hsl(230, 8%, 24%);
+  font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  ms-hyphens: none;
+  hyphens: none;
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  code[class*="language-"]::-moz-selection {
+  background: hsl(230, 1%, 90%);
+  color: inherit;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  code[class*="language-"]
+  *::-moz-selection {
+  background: hsl(230, 1%, 90%);
+  color: inherit;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre[class*="language-"]
+  *::-moz-selection {
+  background: hsl(230, 1%, 90%);
+  color: inherit;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  code[class*="language-"]::selection {
+  background: hsl(230, 1%, 90%);
+  color: inherit;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  code[class*="language-"]
+  *::selection {
+  background: hsl(230, 1%, 90%);
+  color: inherit;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre[class*="language-"]
+  *::selection {
+  background: hsl(230, 1%, 90%);
+  color: inherit;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.comment {
+  color: hsl(230, 4%, 64%);
+  font-style: italic;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.prolog {
+  color: hsl(230, 4%, 64%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.cdata {
+  color: hsl(230, 4%, 64%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.doctype {
+  color: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.punctuation {
+  color: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.entity {
+  color: hsl(230, 8%, 24%);
+  cursor: help;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.attr-name {
+  color: hsl(35, 99%, 36%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.class-name {
+  color: hsl(35, 99%, 36%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.boolean {
+  color: hsl(35, 99%, 36%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.constant {
+  color: hsl(35, 99%, 36%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.number {
+  color: hsl(35, 99%, 36%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.atrule {
+  color: hsl(35, 99%, 36%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.keyword {
+  color: hsl(301, 63%, 40%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.property {
+  color: hsl(5, 74%, 59%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.tag {
+  color: hsl(5, 74%, 59%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.symbol {
+  color: hsl(5, 74%, 59%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.deleted {
+  color: hsl(5, 74%, 59%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.important {
+  color: hsl(5, 74%, 59%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.selector {
+  color: hsl(119, 34%, 47%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.string {
+  color: hsl(119, 34%, 47%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.char {
+  color: hsl(119, 34%, 47%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.builtin {
+  color: hsl(119, 34%, 47%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.inserted {
+  color: hsl(119, 34%, 47%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.regex {
+  color: hsl(119, 34%, 47%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.attr-value {
+  color: hsl(119, 34%, 47%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  attr-value
+  > .token.punctuation {
+  color: hsl(119, 34%, 47%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.variable {
+  color: hsl(221, 87%, 60%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.operator {
+  color: hsl(221, 87%, 60%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.function {
+  color: hsl(221, 87%, 60%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.url {
+  color: hsl(198, 99%, 37%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  attr-value
+  > .token.punctuation.attr-equals {
+  color: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  special-attr
+  > .token.attr-value
+  > .token.value.css {
+  color: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-css
+  .token.selector {
+  color: hsl(5, 74%, 59%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-css
+  .token.property {
+  color: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-css
+  .token.function {
+  color: hsl(198, 99%, 37%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-css
+  .token.url
+  > .token.function {
+  color: hsl(198, 99%, 37%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-css
+  .token.url
+  > .token.string.url {
+  color: hsl(119, 34%, 47%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-css
+  .token.important {
+  color: hsl(301, 63%, 40%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-css
+  .token.atrule
+  .token.rule {
+  color: hsl(301, 63%, 40%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-javascript
+  .token.operator {
+  color: hsl(301, 63%, 40%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-javascript
+  .token.template-string
+  > .token.interpolation
+  > .token.interpolation-punctuation.punctuation {
+  color: hsl(344, 84%, 43%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-json
+  .token.operator {
+  color: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-json
+  .token.null.keyword {
+  color: hsl(35, 99%, 36%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-markdown
+  .token.url {
+  color: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-markdown
+  .token.url
+  > .token.operator {
+  color: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-markdown
+  .token.url-reference.url
+  > .token.string {
+  color: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-markdown
+  .token.url
+  > .token.content {
+  color: hsl(221, 87%, 60%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-markdown
+  .token.url
+  > .token.url {
+  color: hsl(198, 99%, 37%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-markdown
+  .token.url-reference.url {
+  color: hsl(198, 99%, 37%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-markdown
+  .token.blockquote.punctuation {
+  color: hsl(230, 4%, 64%);
+  font-style: italic;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-markdown
+  .token.hr.punctuation {
+  color: hsl(230, 4%, 64%);
+  font-style: italic;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-markdown
+  .token.code-snippet {
+  color: hsl(119, 34%, 47%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-markdown
+  .token.bold
+  .token.content {
+  color: hsl(35, 99%, 36%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-markdown
+  .token.italic
+  .token.content {
+  color: hsl(301, 63%, 40%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-markdown
+  .token.strike
+  .token.content {
+  color: hsl(5, 74%, 59%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-markdown
+  .token.strike
+  .token.punctuation {
+  color: hsl(5, 74%, 59%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-markdown
+  .token.list.punctuation {
+  color: hsl(5, 74%, 59%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .language-markdown
+  .token.title.important
+  > .token.punctuation {
+  color: hsl(5, 74%, 59%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.bold {
+  font-weight: bold;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.italic {
+  font-style: italic;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .token.namespace {
+  -opacity: 0.8;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  token.tab:not(:empty):before {
+  color: hsla(230, 8%, 24%, 0.2);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  token.cr:before {
+  color: hsla(230, 8%, 24%, 0.2);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  token.lf:before {
+  color: hsla(230, 8%, 24%, 0.2);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  token.space:before {
+  color: hsla(230, 8%, 24%, 0.2);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  div.code-toolbar
+  > .toolbar.toolbar
+  > .toolbar-item {
+  margin-right: 0.4em;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  div.code-toolbar
+  > .toolbar.toolbar
+  > .toolbar-item
+  > button {
+  background: hsl(230, 1%, 90%);
+  color: hsl(230, 6%, 44%);
+  padding: 0.1em 0.4em;
+  border-radius: 0.3em;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  div.code-toolbar
+  > .toolbar.toolbar
+  > .toolbar-item
+  > a {
+  background: hsl(230, 1%, 90%);
+  color: hsl(230, 6%, 44%);
+  padding: 0.1em 0.4em;
+  border-radius: 0.3em;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  div.code-toolbar
+  > .toolbar.toolbar
+  > .toolbar-item
+  > span {
+  background: hsl(230, 1%, 90%);
+  color: hsl(230, 6%, 44%);
+  padding: 0.1em 0.4em;
+  border-radius: 0.3em;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  div.code-toolbar
+  > .toolbar.toolbar
+  > .toolbar-item
+  > button:hover {
+  background: hsl(230, 1%, 78%);
+  color: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  div.code-toolbar
+  > .toolbar.toolbar
+  > .toolbar-item
+  > button:focus {
+  background: hsl(230, 1%, 78%);
+  color: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  div.code-toolbar
+  > .toolbar.toolbar
+  > .toolbar-item
+  > a:hover {
+  background: hsl(230, 1%, 78%);
+  color: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  div.code-toolbar
+  > .toolbar.toolbar
+  > .toolbar-item
+  > a:focus {
+  background: hsl(230, 1%, 78%);
+  color: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  div.code-toolbar
+  > .toolbar.toolbar
+  > .toolbar-item
+  > span:hover {
+  background: hsl(230, 1%, 78%);
+  color: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  div.code-toolbar
+  > .toolbar.toolbar
+  > .toolbar-item
+  > span:focus {
+  background: hsl(230, 1%, 78%);
+  color: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .line-highlight.line-highlight {
+  background: hsla(230, 8%, 24%, 0.05);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .line-highlight.line-highlight:before {
+  background: hsl(230, 1%, 90%);
+  color: hsl(230, 8%, 24%);
+  padding: 0.1em 0.6em;
+  border-radius: 0.3em;
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .line-highlight.line-highlight[data-end]:after {
+  background: hsl(230, 1%, 90%);
+  color: hsl(230, 8%, 24%);
+  padding: 0.1em 0.6em;
+  border-radius: 0.3em;
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre[id].linkable-line-numbers.linkable-line-numbers
+  span.line-numbers-rows
+  > span:hover:before {
+  background-color: hsla(230, 8%, 24%, 0.05);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .line-numbers.line-numbers
+  .line-numbers-rows {
+  border-right-color: hsla(230, 8%, 24%, 0.2);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .command-line
+  .command-line-prompt {
+  border-right-color: hsla(230, 8%, 24%, 0.2);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .line-numbers
+  .line-numbers-rows
+  > span:before {
+  color: hsl(230, 1%, 62%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .command-line
+  .command-line-prompt
+  > span:before {
+  color: hsl(230, 1%, 62%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .rainbow-braces
+  .token.token.punctuation.brace-level-1 {
+  color: hsl(5, 74%, 59%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .rainbow-braces
+  .token.token.punctuation.brace-level-5 {
+  color: hsl(5, 74%, 59%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .rainbow-braces
+  .token.token.punctuation.brace-level-9 {
+  color: hsl(5, 74%, 59%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .rainbow-braces
+  .token.token.punctuation.brace-level-2 {
+  color: hsl(119, 34%, 47%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .rainbow-braces
+  .token.token.punctuation.brace-level-6 {
+  color: hsl(119, 34%, 47%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .rainbow-braces
+  .token.token.punctuation.brace-level-10 {
+  color: hsl(119, 34%, 47%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .rainbow-braces
+  .token.token.punctuation.brace-level-3 {
+  color: hsl(221, 87%, 60%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .rainbow-braces
+  .token.token.punctuation.brace-level-7 {
+  color: hsl(221, 87%, 60%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .rainbow-braces
+  .token.token.punctuation.brace-level-11 {
+  color: hsl(221, 87%, 60%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .rainbow-braces
+  .token.token.punctuation.brace-level-4 {
+  color: hsl(301, 63%, 40%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .rainbow-braces
+  .token.token.punctuation.brace-level-8 {
+  color: hsl(301, 63%, 40%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .rainbow-braces
+  .token.token.punctuation.brace-level-12 {
+  color: hsl(301, 63%, 40%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre.diff-highlight
+  > code
+  .token.token.deleted:not(.prefix) {
+  background-color: hsla(353, 100%, 66%, 0.15);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre
+  > code.diff-highlight
+  .token.token.deleted:not(.prefix) {
+  background-color: hsla(353, 100%, 66%, 0.15);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre.diff-highlight
+  > code
+  .token.token.deleted:not(.prefix)::-moz-selection {
+  background-color: hsla(353, 95%, 66%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre.diff-highlight
+  > code
+  .token.token.deleted:not(.prefix)
+  *::-moz-selection {
+  background-color: hsla(353, 95%, 66%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre
+  > code.diff-highlight
+  .token.token.deleted:not(.prefix)::-moz-selection {
+  background-color: hsla(353, 95%, 66%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre
+  > code.diff-highlight
+  .token.token.deleted:not(.prefix)
+  *::-moz-selection {
+  background-color: hsla(353, 95%, 66%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre.diff-highlight
+  > code
+  .token.token.deleted:not(.prefix)::selection {
+  background-color: hsla(353, 95%, 66%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre.diff-highlight
+  > code
+  .token.token.deleted:not(.prefix)
+  *::selection {
+  background-color: hsla(353, 95%, 66%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre
+  > code.diff-highlight
+  .token.token.deleted:not(.prefix)::selection {
+  background-color: hsla(353, 95%, 66%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre
+  > code.diff-highlight
+  .token.token.deleted:not(.prefix)
+  *::selection {
+  background-color: hsla(353, 95%, 66%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre.diff-highlight
+  > code
+  .token.token.inserted:not(.prefix) {
+  background-color: hsla(137, 100%, 55%, 0.15);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre
+  > code.diff-highlight
+  .token.token.inserted:not(.prefix) {
+  background-color: hsla(137, 100%, 55%, 0.15);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre.diff-highlight
+  > code
+  .token.token.inserted:not(.prefix)::-moz-selection {
+  background-color: hsla(135, 73%, 55%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre.diff-highlight
+  > code
+  .token.token.inserted:not(.prefix)
+  *::-moz-selection {
+  background-color: hsla(135, 73%, 55%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre
+  > code.diff-highlight
+  .token.token.inserted:not(.prefix)::-moz-selection {
+  background-color: hsla(135, 73%, 55%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre
+  > code.diff-highlight
+  .token.token.inserted:not(.prefix)
+  *::-moz-selection {
+  background-color: hsla(135, 73%, 55%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre.diff-highlight
+  > code
+  .token.token.inserted:not(.prefix)::selection {
+  background-color: hsla(135, 73%, 55%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre.diff-highlight
+  > code
+  .token.token.inserted:not(.prefix)
+  *::selection {
+  background-color: hsla(135, 73%, 55%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre
+  > code.diff-highlight
+  .token.token.inserted:not(.prefix)::selection {
+  background-color: hsla(135, 73%, 55%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  pre
+  > code.diff-highlight
+  .token.token.inserted:not(.prefix)
+  *::selection {
+  background-color: hsla(135, 73%, 55%, 0.25);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .prism-previewer.prism-previewer:before {
+  border-color: hsl(0, 0, 95%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .prism-previewer-gradient.prism-previewer-gradient
+  div {
+  border-color: hsl(0, 0, 95%);
+  border-radius: 0.3em;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .prism-previewer-color.prism-previewer-color:before {
+  border-radius: 0.3em;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .prism-previewer-easing.prism-previewer-easing:before {
+  border-radius: 0.3em;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .prism-previewer.prism-previewer:after {
+  border-top-color: hsl(0, 0, 95%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .prism-previewer-flipped.prism-previewer-flipped.after {
+  border-bottom-color: hsl(0, 0, 95%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .prism-previewer-angle.prism-previewer-angle:before {
+  background: hsl(0, 0%, 100%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .prism-previewer-time.prism-previewer-time:before {
+  background: hsl(0, 0%, 100%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .prism-previewer-easing.prism-previewer-easing {
+  background: hsl(0, 0%, 100%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .prism-previewer-angle.prism-previewer-angle
+  circle {
+  stroke: hsl(230, 8%, 24%);
+  stroke-opacity: 1;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .prism-previewer-time.prism-previewer-time
+  circle {
+  stroke: hsl(230, 8%, 24%);
+  stroke-opacity: 1;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .prism-previewer-easing.prism-previewer-easing
+  circle {
+  stroke: hsl(230, 8%, 24%);
+  fill: transparent;
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .prism-previewer-easing.prism-previewer-easing
+  path {
+  stroke: hsl(230, 8%, 24%);
+}
+.openui-theme:not([data-openui-theme="dark"])
+  .openui-code-block-wrapper:not([data-code-theme="dark"])
+  .prism-previewer-easing.prism-previewer-easing
+  line {
+  stroke: hsl(230, 8%, 24%);
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  > .openui-code-block-syntax-highlighter {
+  color: #d4d4d4;
+  font-size: 13px;
+  text-shadow: none;
+  font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  ms-hyphens: none;
+  hyphens: none;
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  background: #1e1e1e;
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  > .openui-code-block-syntax-highlighter
+  > code {
+  color: #d4d4d4;
+  font-size: 13px;
+  text-shadow: none;
+  font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  ms-hyphens: none;
+  hyphens: none;
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  pre[class*="language-"]::selection {
+  text-shadow: none;
+  background: #264f78;
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  code[class*="language-"]::selection {
+  text-shadow: none;
+  background: #264f78;
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  pre[class*="language-"]
+  *::selection {
+  text-shadow: none;
+  background: #264f78;
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  code[class*="language-"]
+  *::selection {
+  text-shadow: none;
+  background: #264f78;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .namespace {
+  -opacity: 0.7;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper doctype.doctype-tag {
+  color: #569cd6;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper doctype.name {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.comment {
+  color: #6a9955;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.prolog {
+  color: #6a9955;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.punctuation {
+  color: #d4d4d4;
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  .language-html
+  .language-css
+  .token.punctuation {
+  color: #d4d4d4;
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  .language-html
+  .language-javascript
+  .token.punctuation {
+  color: #d4d4d4;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.property {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.tag {
+  color: #569cd6;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.boolean {
+  color: #569cd6;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.number {
+  color: #b5cea8;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.constant {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.symbol {
+  color: #b5cea8;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.inserted {
+  color: #b5cea8;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.unit {
+  color: #b5cea8;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.selector {
+  color: #d7ba7d;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.attr-name {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.string {
+  color: #ce9178;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.char {
+  color: #ce9178;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.builtin {
+  color: #ce9178;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.deleted {
+  color: #ce9178;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .language-css .token.string.url {
+  text-decoration: underline;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.operator {
+  color: #d4d4d4;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.entity {
+  color: #569cd6;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper operator.arrow {
+  color: #569cd6;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.atrule {
+  color: #ce9178;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper atrule.rule {
+  color: #c586c0;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper atrule.url {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper atrule.url.function {
+  color: #dcdcaa;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper atrule.url.punctuation {
+  color: #d4d4d4;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.keyword {
+  color: #569cd6;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper keyword.module {
+  color: #c586c0;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper keyword.control-flow {
+  color: #c586c0;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.function {
+  color: #dcdcaa;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper function.maybe-class-name {
+  color: #dcdcaa;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.regex {
+  color: #d16969;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.important {
+  color: #569cd6;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.italic {
+  font-style: italic;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.class-name {
+  color: #4ec9b0;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.maybe-class-name {
+  color: #4ec9b0;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.console {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.parameter {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.interpolation {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  punctuation.interpolation-punctuation {
+  color: #569cd6;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.variable {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper imports.maybe-class-name {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper exports.maybe-class-name {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.escape {
+  color: #d7ba7d;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper tag.punctuation {
+  color: #808080;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.cdata {
+  color: #808080;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.attr-value {
+  color: #ce9178;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper attr-value.punctuation {
+  color: #ce9178;
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  attr-value.punctuation.attr-equals {
+  color: #d4d4d4;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .token.namespace {
+  color: #4ec9b0;
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  pre[class*="language-javascript"] {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  code[class*="language-javascript"] {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper pre[class*="language-jsx"] {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper code[class*="language-jsx"] {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  pre[class*="language-typescript"] {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  code[class*="language-typescript"] {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper pre[class*="language-tsx"] {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper code[class*="language-tsx"] {
+  color: #9cdcfe;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper pre[class*="language-css"] {
+  color: #ce9178;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper code[class*="language-css"] {
+  color: #ce9178;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper pre[class*="language-html"] {
+  color: #d4d4d4;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper code[class*="language-html"] {
+  color: #d4d4d4;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .language-regex .token.anchor {
+  color: #dcdcaa;
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  .language-html
+  .token.punctuation {
+  color: #808080;
+}
+.openui-theme[data-openui-theme="dark"]
+  .openui-code-block-wrapper
+  pre[class*="language-"]
+  > code[class*="language-"] {
+  position: relative;
+  z-index: 1;
+}
+.openui-theme[data-openui-theme="dark"] .openui-code-block-wrapper .line-highlight.line-highlight {
+  background: #f7ebc6;
+  box-shadow: inset 5px 0 0 #f7d87c;
+  z-index: 0;
+}
+.openui-theme
+  .openui-code-block-wrapper[data-code-theme="dark"]
+  > .openui-code-block-syntax-highlighter {
+  color: #d4d4d4;
+  font-size: 13px;
+  text-shadow: none;
+  font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  ms-hyphens: none;
+  hyphens: none;
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  background: #1e1e1e;
+}
+.openui-theme
+  .openui-code-block-wrapper[data-code-theme="dark"]
+  > .openui-code-block-syntax-highlighter
+  > code {
+  color: #d4d4d4;
+  font-size: 13px;
+  text-shadow: none;
+  font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  ms-hyphens: none;
+  hyphens: none;
+}
+.openui-theme
+  .openui-code-block-wrapper[data-code-theme="dark"]
+  pre[class*="language-"]::selection {
+  text-shadow: none;
+  background: #264f78;
+}
+.openui-theme
+  .openui-code-block-wrapper[data-code-theme="dark"]
+  code[class*="language-"]::selection {
+  text-shadow: none;
+  background: #264f78;
+}
+.openui-theme
+  .openui-code-block-wrapper[data-code-theme="dark"]
+  pre[class*="language-"]
+  *::selection {
+  text-shadow: none;
+  background: #264f78;
+}
+.openui-theme
+  .openui-code-block-wrapper[data-code-theme="dark"]
+  code[class*="language-"]
+  *::selection {
+  text-shadow: none;
+  background: #264f78;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .namespace {
+  -opacity: 0.7;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] doctype.doctype-tag {
+  color: #569cd6;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] doctype.name {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.comment {
+  color: #6a9955;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.prolog {
+  color: #6a9955;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.punctuation {
+  color: #d4d4d4;
+}
+.openui-theme
+  .openui-code-block-wrapper[data-code-theme="dark"]
+  .language-html
+  .language-css
+  .token.punctuation {
+  color: #d4d4d4;
+}
+.openui-theme
+  .openui-code-block-wrapper[data-code-theme="dark"]
+  .language-html
+  .language-javascript
+  .token.punctuation {
+  color: #d4d4d4;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.property {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.tag {
+  color: #569cd6;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.boolean {
+  color: #569cd6;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.number {
+  color: #b5cea8;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.constant {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.symbol {
+  color: #b5cea8;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.inserted {
+  color: #b5cea8;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.unit {
+  color: #b5cea8;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.selector {
+  color: #d7ba7d;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.attr-name {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.string {
+  color: #ce9178;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.char {
+  color: #ce9178;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.builtin {
+  color: #ce9178;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.deleted {
+  color: #ce9178;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .language-css .token.string.url {
+  text-decoration: underline;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.operator {
+  color: #d4d4d4;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.entity {
+  color: #569cd6;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] operator.arrow {
+  color: #569cd6;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.atrule {
+  color: #ce9178;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] atrule.rule {
+  color: #c586c0;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] atrule.url {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] atrule.url.function {
+  color: #dcdcaa;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] atrule.url.punctuation {
+  color: #d4d4d4;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.keyword {
+  color: #569cd6;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] keyword.module {
+  color: #c586c0;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] keyword.control-flow {
+  color: #c586c0;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.function {
+  color: #dcdcaa;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] function.maybe-class-name {
+  color: #dcdcaa;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.regex {
+  color: #d16969;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.important {
+  color: #569cd6;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.italic {
+  font-style: italic;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.class-name {
+  color: #4ec9b0;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.maybe-class-name {
+  color: #4ec9b0;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.console {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.parameter {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.interpolation {
+  color: #9cdcfe;
+}
+.openui-theme
+  .openui-code-block-wrapper[data-code-theme="dark"]
+  punctuation.interpolation-punctuation {
+  color: #569cd6;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.variable {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] imports.maybe-class-name {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] exports.maybe-class-name {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.escape {
+  color: #d7ba7d;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] tag.punctuation {
+  color: #808080;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.cdata {
+  color: #808080;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.attr-value {
+  color: #ce9178;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] attr-value.punctuation {
+  color: #ce9178;
+}
+.openui-theme
+  .openui-code-block-wrapper[data-code-theme="dark"]
+  attr-value.punctuation.attr-equals {
+  color: #d4d4d4;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .token.namespace {
+  color: #4ec9b0;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] pre[class*="language-javascript"] {
+  color: #9cdcfe;
+}
+.openui-theme
+  .openui-code-block-wrapper[data-code-theme="dark"]
+  code[class*="language-javascript"] {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] pre[class*="language-jsx"] {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] code[class*="language-jsx"] {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] pre[class*="language-typescript"] {
+  color: #9cdcfe;
+}
+.openui-theme
+  .openui-code-block-wrapper[data-code-theme="dark"]
+  code[class*="language-typescript"] {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] pre[class*="language-tsx"] {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] code[class*="language-tsx"] {
+  color: #9cdcfe;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] pre[class*="language-css"] {
+  color: #ce9178;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] code[class*="language-css"] {
+  color: #ce9178;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] pre[class*="language-html"] {
+  color: #d4d4d4;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] code[class*="language-html"] {
+  color: #d4d4d4;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .language-regex .token.anchor {
+  color: #dcdcaa;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .language-html .token.punctuation {
+  color: #808080;
+}
+.openui-theme
+  .openui-code-block-wrapper[data-code-theme="dark"]
+  pre[class*="language-"]
+  > code[class*="language-"] {
+  position: relative;
+  z-index: 1;
+}
+.openui-theme .openui-code-block-wrapper[data-code-theme="dark"] .line-highlight.line-highlight {
+  background: #f7ebc6;
+  box-shadow: inset 5px 0 0 #f7d87c;
+  z-index: 0;
+}

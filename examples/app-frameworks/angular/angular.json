@@ -53,7 +53,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css"]
+            "styles": ["src/styles.css", "node_modules/@openuidev/angular-ui/styles/index.css"]
           },
           "configurations": {
             "production": {
@@ -71,6 +71,12 @@
               ],
               "outputHashing": "all"
             },
+            "gallery": {
+              "browser": "src/gallery-main.ts",
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            },
             "development": {
               "optimization": false,
               "extractLicenses": false,
@@ -82,6 +88,9 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
+            "gallery": {
+              "buildTarget": "openui-angular:build:gallery"
+            },
             "production": {
               "buildTarget": "openui-angular:build:production"
             },

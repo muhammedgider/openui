@@ -2,14 +2,15 @@ import { JsonPipe } from "@angular/common";
 import { Component, Type, computed, signal } from "@angular/core";
 import type { ActionEvent, OpenUIError, ParseResult } from "@openuidev/angular-lang";
 import { Renderer } from "@openuidev/angular-lang";
-import { library } from "./openui/library";
 import { QueryLoaderComponent } from "./openui/components/query-loader.component";
+import { library } from "./openui/library";
 import { scenarios, type ScenarioDefinition } from "./openui/scenarios";
+import { UiPlaygroundComponent } from "./openui/ui-playground.component";
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [JsonPipe, Renderer],
+  imports: [JsonPipe, Renderer, UiPlaygroundComponent],
   template: `
     <main class="page-shell">
       <section class="hero">
@@ -26,6 +27,8 @@ import { scenarios, type ScenarioDefinition } from "./openui/scenarios";
           <span>Package source: built local distribution</span>
         </div>
       </section>
+
+      <section class="panel"><openui-ui-playground /></section>
 
       <section class="toolbar">
         @for (scenario of scenarioList; track scenario.id) {
@@ -264,14 +267,16 @@ export class App {
   protected readonly scenarioList = scenarios;
   protected readonly selectedScenarioId = signal(scenarios[0]?.id ?? "static");
   protected readonly response = signal<string | null>(scenarios[0]?.response ?? null);
-  protected readonly initialState = signal<Record<string, unknown>>(scenarios[0]?.initialState ?? {});
+  protected readonly initialState = signal<Record<string, unknown>>(
+    scenarios[0]?.initialState ?? {},
+  );
   protected readonly isStreaming = signal(false);
   protected readonly lastAction = signal<ActionEvent | null>(null);
   protected readonly lastStateUpdate = signal<Record<string, unknown> | null>(null);
   protected readonly lastParseResult = signal<ParseResult | null>(null);
   protected readonly lastErrors = signal<OpenUIError[]>([]);
-  protected readonly currentScenario = computed(() =>
-    this.scenarioList.find((scenario) => scenario.id === this.selectedScenarioId()) ?? null,
+  protected readonly currentScenario = computed(
+    () => this.scenarioList.find((scenario) => scenario.id === this.selectedScenarioId()) ?? null,
   );
 
   protected readonly toolProvider = {

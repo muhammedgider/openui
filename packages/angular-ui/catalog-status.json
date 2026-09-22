@@ -1,0 +1,359 @@
+{
+  "scope": "openuiLibrary exported component symbols, not the complete react-ui primitive API",
+  "upstreamEntries": 82,
+  "angularEntries": 82,
+  "angularVisualRenderers": 62,
+  "angularDataRecords": 20,
+  "visualParityVerified": false,
+  "chatLibraryExported": true,
+  "angularChatEntries": 84,
+  "upstreamChatEntries": 84,
+  "chatVisualParityVerified": false,
+  "chatLimitations": "Sources strip/citation hover behavior, nonfoldable SectionV2 appearance, and comprehensive nested-container/streaming parity are not certified.",
+  "entries": [
+    {
+      "symbol": "Card",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "CardHeader",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "TextContent",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "MarkDownRenderer",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Callout",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "TextCallout",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Image",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "ImageBlock",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "ImageGallery",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "CodeBlock",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "InlineHeader",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Table",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Col",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "EditableTable",
+      "implementation": "partial",
+      "limitation": "Basic edit/reset/save works; date/select editor presentation, scroll controls and complete keyboard parity remain incomplete."
+    },
+    {
+      "symbol": "BarChartCondensed",
+      "implementation": "partial",
+      "limitation": "Native SVG data rendering exists, but upstream layout, palettes, tooltip/sidebar, loading, export and edge-case behavior are not equivalent."
+    },
+    {
+      "symbol": "LineChartCondensed",
+      "implementation": "partial",
+      "limitation": "Native SVG data rendering exists, but upstream layout, palettes, tooltip/sidebar, loading, export and edge-case behavior are not equivalent."
+    },
+    {
+      "symbol": "AreaChartCondensed",
+      "implementation": "partial",
+      "limitation": "Native SVG data rendering exists, but upstream layout, palettes, tooltip/sidebar, loading, export and edge-case behavior are not equivalent."
+    },
+    {
+      "symbol": "RadarChart",
+      "implementation": "partial",
+      "limitation": "Native SVG data rendering exists, but upstream layout, palettes, tooltip/sidebar, loading, export and edge-case behavior are not equivalent."
+    },
+    {
+      "symbol": "HorizontalBarChart",
+      "implementation": "partial",
+      "limitation": "Native SVG data rendering exists, but upstream layout, palettes, tooltip/sidebar, loading, export and edge-case behavior are not equivalent."
+    },
+    {
+      "symbol": "Series",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "PieChart",
+      "implementation": "partial",
+      "limitation": "Native SVG data rendering exists, but upstream layout, palettes, tooltip/sidebar, loading, export and edge-case behavior are not equivalent."
+    },
+    {
+      "symbol": "RadialChart",
+      "implementation": "partial",
+      "limitation": "Native SVG data rendering exists, but upstream layout, palettes, tooltip/sidebar, loading, export and edge-case behavior are not equivalent."
+    },
+    {
+      "symbol": "SingleStackedBarChart",
+      "implementation": "partial",
+      "limitation": "Native SVG data rendering exists, but upstream layout, palettes, tooltip/sidebar, loading, export and edge-case behavior are not equivalent."
+    },
+    {
+      "symbol": "Slice",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "ScatterChart",
+      "implementation": "partial",
+      "limitation": "Native SVG data rendering exists, but upstream layout, palettes, tooltip/sidebar, loading, export and edge-case behavior are not equivalent."
+    },
+    {
+      "symbol": "ScatterSeries",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Point",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Form",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "FormControl",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Label",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Input",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "TextArea",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Select",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "SelectItem",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "DatePicker",
+      "implementation": "partial",
+      "limitation": "Single/range calendar works; range selection details, dropdown styling, collision/focus parity and RTL remain incomplete."
+    },
+    {
+      "symbol": "Slider",
+      "implementation": "partial",
+      "limitation": "Reactive, keyboard/pointer, shared Angular select and debounced value handling exist; large-step-list handling and exhaustive validation/drag parity remain incomplete."
+    },
+    {
+      "symbol": "CheckBoxGroup",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "CheckBoxItem",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "RadioGroup",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "RadioItem",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "SwitchGroup",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "SwitchItem",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "ChipItem",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Chips",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "OptionCard",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "OptionCards",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Button",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Buttons",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "IconButton",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Stack",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Tabs",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "TabItem",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Accordion",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "AccordionItem",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Steps",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "StepsItem",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Carousel",
+      "implementation": "partial",
+      "limitation": "Content unions now include charts/EditableTable where applicable; the referenced renderers remain partial."
+    },
+    {
+      "symbol": "Separator",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "TagBlock",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Tag",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Icon",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "EntityList",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "ListBlock",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "ListItem",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Text",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "BoldText",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "IconText",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "ImageText",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "ImageTextLarge",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "MetricIndicatorInline",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "MetricIndicatorWithStrikethrough",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "SnippetCardItem",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "SnippetCardBlock",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "OverviewCardItem",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "OverviewCardBlock",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "ContextCardItem",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "ContextCardBlock",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "CompositeCardItem",
+      "implementation": "partial",
+      "limitation": "Content unions now include charts/EditableTable where applicable; the referenced renderers remain partial."
+    },
+    {
+      "symbol": "CompositeCardBlock",
+      "implementation": "partial",
+      "limitation": "Content unions now include charts/EditableTable where applicable; the referenced renderers remain partial."
+    },
+    {
+      "symbol": "VisualCardItem",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "VisualCardBlock",
+      "implementation": "implemented-unverified"
+    },
+    {
+      "symbol": "Modal",
+      "implementation": "partial",
+      "limitation": "Content unions now include charts/EditableTable where applicable; the referenced renderers remain partial."
+    }
+  ]
+}

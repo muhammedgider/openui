@@ -28,7 +28,14 @@ pnpm run examples:prepare
 ```
 
 This installs workspace dependencies without running every package's prepare
-script, then builds `lang-core` and `angular-lang` in dependency order.
+script, then builds `lang-core`, `angular-lang` and `angular-ui` in dependency order.
+
+The **Angular UI port** section has five deterministic scenarios: layout/typography,
+forms/validation, selection controls, tabs/accordion and tables/pagination. Toggle
+light/dark themes, replay the stream, edit fields and inspect emitted actions/state.
+The registry contains 28 entries (21 visual renderers and seven data records); it is
+not a complete or visually verified React UI port. Select requires the browser's
+native Popover API. The original runtime scenarios remain below this section.
 
 Then install this application's separate dependencies:
 
@@ -50,15 +57,15 @@ Open [http://localhost:4200](http://localhost:4200).
 
 ## Local package resolution
 
-Until the first npm release, `@openuidev/angular-lang` is a declared
-`file:../../../dist/angular-lang` dependency. pnpm installs the built package into
+During development, `@openuidev/angular-lang` and `@openuidev/angular-ui` are declared
+`file:../../../dist/angular-lang` and `file:../../../dist/angular-ui` dependencies. pnpm installs the built package into
 the example's dependency graph; there are no aliases to workspace source files.
 Angular peers resolve from this application rather than loading a second Angular
 runtime from the workspace.
 
 Once the distribution exists, the example can install and build without any
 workspace `node_modules` or package sources. To test it separately, copy this
-example and `dist/angular-lang` while preserving their relative paths. After
+example, `dist/angular-lang` and `dist/angular-ui` while preserving their relative paths. After
 changing library code, rebuild the distribution and reinstall the example's
 local dependency before rebuilding the app.
 
@@ -90,6 +97,14 @@ src/
 │           └── state-value.component.ts
 └── styles.css                       # Example layout and UI styles
 ```
+
+## Component gallery
+
+Run `pnpm gallery` for the separate gallery entrypoint on loopback port 4207. It leaves the renderer smoke-test entrypoint unchanged. The gallery covers the base (82) and chat (84) registries with search, per-component views, source editing, light/dark mode, width controls and a local action/state log. Parent-consumed data records are demonstrated through their parent components.
+
+The gallery uses OpenUI's default theme tokens, the upstream Storybook browser reset and self-hosted Inter. Font assets and their OFL license/provenance live under `public/fonts`; normal and italic Latin/Latin Extended subsets support international text without runtime requests to a font CDN. `public/gallery-host.css` is loaded only by the gallery entrypoint.
+
+From the repository root, `pnpm --filter @openuidev/angular-ui gallery:check` compares the running gallery to an isolated React reference (not included in the Angular application). Partial components remain labelled; matching tokens alone does not prove matching rendering or behavior. After rebuilding and reinstalling the local library dependency, restart the gallery server: Angular's dev server can retain the previous dependency bundle despite application HMR.
 
 ## What to test
 

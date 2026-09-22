@@ -1,0 +1,74 @@
+{
+  "name": "@openuidev/angular-ui",
+  "version": "0.0.0",
+  "private": true,
+  "description": "React-free Angular port of the OpenUI component library (initial subset).",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "publishConfig": {
+    "directory": "../../dist/angular-ui"
+  },
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json -c tsconfig.lib.json && node scripts/prepare-dist.mjs",
+    "typecheck": "tsc -p tsconfig.lib.json --noEmit",
+    "test": "vitest run",
+    "browser:check": "pnpm build && node scripts/browser-parity.mjs",
+    "gallery:check": "node scripts/gallery-style-parity.mjs",
+    "react-free:check": "node scripts/check-react-free.mjs",
+    "lint:check": "eslint ./src",
+    "format:check": "prettier ./src ./scripts --check",
+    "pack:check": "pnpm build && node scripts/check-pack.mjs",
+    "styles:sync": "node scripts/sync-upstream-styles.mjs",
+    "styles:check": "node scripts/check-upstream-styles.mjs",
+    "catalog:write": "node scripts/catalog-status.mjs",
+    "catalog:check": "node scripts/catalog-status.mjs --check",
+    "ci": "pnpm format:check && pnpm lint:check && pnpm typecheck && pnpm test && pnpm styles:check && pnpm catalog:check && pnpm pack:check"
+  },
+  "engines": {
+    "node": "^22.22.3 || ^24.15.0 || ^26.0.0"
+  },
+  "dependencies": {
+    "d3-shape": "3.2.0",
+    "lucide": "0.562.0",
+    "refractor": "5.0.0",
+    "remark-breaks": "4.0.0",
+    "remark-gfm": "4.0.1",
+    "remark-parse": "11.0.0",
+    "tslib": "^2.8.1",
+    "unified": "11.0.5"
+  },
+  "peerDependencies": {
+    "@angular/common": "^22.1.5",
+    "@angular/core": "^22.1.5",
+    "@openuidev/angular-lang": "^0.1.0",
+    "@openuidev/lang-core": "^0.3.0",
+    "rxjs": "^7.8.2",
+    "zod": "^3.25.0 || ^4.0.0"
+  },
+  "devDependencies": {
+    "@angular/common": "catalog:",
+    "@angular/compiler": "catalog:",
+    "@angular/compiler-cli": "catalog:",
+    "@angular/core": "catalog:",
+    "@angular/platform-browser": "catalog:",
+    "@angular/platform-browser-dynamic": "catalog:",
+    "@openuidev/angular-lang": "workspace:^",
+    "@openuidev/lang-core": "workspace:^",
+    "@playwright/test": "1.63.0",
+    "@types/d3-shape": "3.1.8",
+    "esbuild": "0.25.10",
+    "jsdom": "catalog:",
+    "ng-packagr": "catalog:",
+    "pixelmatch": "7.1.0",
+    "pngjs": "7.0.0",
+    "rxjs": "catalog:",
+    "sass": "^1.83.4",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.0",
+    "zod": "catalog:",
+    "zone.js": "catalog:"
+  }
+}
